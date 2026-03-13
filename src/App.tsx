@@ -10,6 +10,13 @@ import { OffersPage } from './pages/OffersPage';
 import { PartnerApplicationPage } from './pages/PartnerApplicationPage';
 import { CardApplicationPage } from './pages/CardApplicationPage';
 import { FaqPage } from './pages/FaqPage';
+import { TermsAndConditionsPage } from './pages/TermsAndConditionsPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { ContactPage } from './pages/ContactPage';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 function AppContent() {
   const [cardActive, setCardActive] = useState(false);
@@ -54,6 +61,18 @@ function AppContent() {
             />
           } 
         />
+        <Route path="/connexion" element={<LoginPage theme={theme} />} />
+        <Route path="/inscription" element={<RegisterPage theme={theme} />} />
+        
+        <Route 
+          path="/mon-compte" 
+          element={
+            <ProtectedRoute>
+              <DashboardPage theme={theme} cardActive={cardActive} daysRemaining={daysRemaining} />
+            </ProtectedRoute>
+          } 
+        />
+
         <Route 
           path="/offres" 
           element={
@@ -76,6 +95,24 @@ function AppContent() {
           path="/faq" 
           element={
             <FaqPage theme={theme} />
+          } 
+        />
+        <Route 
+          path="/contact" 
+          element={
+            <ContactPage theme={theme} />
+          } 
+        />
+        <Route 
+          path="/cgu" 
+          element={
+            <TermsAndConditionsPage theme={theme} />
+          } 
+        />
+        <Route 
+          path="/politique-de-confidentialite" 
+          element={
+            <PrivacyPolicyPage theme={theme} />
           } 
         />
       </Routes>

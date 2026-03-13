@@ -38,10 +38,10 @@ export const Footer = ({ theme }: { theme: 'white' | 'black' }) => {
           <div>
             <h4 className={`font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>Support</h4>
             <ul className={`space-y-4 transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              <li><a href="#" className="hover:text-orange-600 transition-colors">Aide & FAQ</a></li>
-              <li><a href="#" className="hover:text-orange-600 transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-orange-600 transition-colors">Confidentialité</a></li>
-              <li><a href="#" className="hover:text-orange-600 transition-colors">Conditions générales</a></li>
+              <li><Link to="/faq" className="hover:text-orange-600 transition-colors">Aide & FAQ</Link></li>
+              <li><Link to="/contact" className="hover:text-orange-600 transition-colors">Contact</Link></li>
+              <li><Link to="/politique-de-confidentialite" className="hover:text-orange-600 transition-colors">Confidentialité</Link></li>
+              <li><Link to="/cgu" className="hover:text-orange-600 transition-colors">Conditions générales</Link></li>
             </ul>
           </div>
         </div>

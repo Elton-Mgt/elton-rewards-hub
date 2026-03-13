@@ -10,8 +10,16 @@ export const IMAGES = {
   PARTNER_SUPERMARKET: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/premium-ivorian-supermarket-fc94da83-1773390805797.webp",
   PARTNER_TECH: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/abidjan-tech-store-38fc0ea7-1773390806515.webp",
   APPLICATION_HERO: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/card-app-hero-450x800.webp",
-  PARTNER_SPECTACLE: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/partner-spectacle-b4af7987-1773400600927.webp"
+  PARTNER_SPECTACLE: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/partner-spectacle-b4af7987-1773400600927.webp",
+  CONTACT_HERO: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/ivorian-customer-service-operator-414fcce3-1773421223353.webp"
 };
+
+export const NAV_LINKS = [
+  { name: 'Comment ça marche', href: '/#how-it-works' },
+  { name: 'Offres', href: '/offres' },
+  { name: 'Aide & FAQ', href: '/faq' },
+  { name: 'Contact', href: '/contact' },
+];
 
 export const PARTNERS = [
   { 
@@ -86,95 +94,107 @@ export const PARTNERS = [
   },
 ];
 
+const STATION_IMAGE_URL = "https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1773422695501_Elton_station.jpeg";
+
 export const ELTON_STATIONS = [
   {
     id: 1,
-    name: "Elton Plateau",
-    location: { lat: 5.326, lng: -4.019 },
-    address: "Bd de la République, Plateau, Abidjan",
-    phoneNumber: "+225 27 20 20 00 00",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-dakar-plateau-42571346-1773400989230.webp",
+    name: "Station des 2 Plateaux",
+    location: { lat: 5.378051, lng: -4.004273 },
+    address: "Bd. Vallot, Abidjan",
+    area: "2 Plateaux",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
     services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 2,
-    name: "Elton Almadies",
-    location: { lat: 5.405, lng: -4.002 },
-    address: "Avenue du Golf, Cocody Almadies, Abidjan",
-    phoneNumber: "+225 27 22 44 11 22",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-almadies-2a36a6ef-1773400994244.webp",
-    services: ["Plein", "Boutique", "Restaurant"]
+    name: "Station Cocody",
+    location: { lat: 5.344440, lng: -4.008330 },
+    address: "Carrefour de Bingerville, Abidjan",
+    area: "Cocody",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 3,
-    name: "Elton Yamoussoukro",
-    location: { lat: 6.815, lng: -5.275 },
-    address: "Avenue de la Paix, Yamoussoukro",
-    phoneNumber: "+225 27 30 64 33 44",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-thies-3e2511c1-1773400989608.webp",
-    services: ["Plein", "Boutique", "Café"]
+    name: "Station Treichville",
+    location: { lat: 5.305556, lng: -4.013889 },
+    address: "Avenue 6, Rue 12, Abidjan",
+    area: "Treichville",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 4,
-    name: "Elton San-Pedro",
-    location: { lat: 4.748, lng: -6.637 },
-    address: "Quartier Administratif, San-Pedro",
-    phoneNumber: "+225 27 34 71 55 66",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-saint-louis-55393d73-1773400994450.webp",
+    name: "Station Koumassi",
+    location: { lat: 5.308611, lng: -3.949167 },
+    address: "Zone Industrielle, Abidjan",
+    area: "Koumassi",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
     services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 5,
-    name: "Elton Assinie",
-    location: { lat: 5.163, lng: -3.284 },
-    address: "Route d'Assinie-Mafia, Assinie",
-    phoneNumber: "+225 27 21 30 77 88",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-mbour-fb7f76e0-1773400988739.webp",
-    services: ["Plein", "Boutique"]
+    name: "Station Yopougon",
+    location: { lat: 5.333333, lng: -4.083333 },
+    address: "Route de Dabou, Abidjan",
+    area: "Yopougon",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 6,
-    name: "Elton Korhogo",
-    location: { lat: 9.458, lng: -5.629 },
-    address: "Centre Ville, Korhogo",
-    phoneNumber: "+225 27 36 86 99 00",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-touba-75fc2c2f-1773400988843.webp",
-    services: ["Plein", "Boutique"]
+    name: "Station Abobo",
+    location: { lat: 5.416667, lng: -4.016667 },
+    address: "Av. De la Paix, Abidjan",
+    area: "Abobo",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 7,
-    name: "Elton Bouaké",
-    location: { lat: 7.690, lng: -5.031 },
-    address: "Quartier Commerce, Bouaké",
-    phoneNumber: "+225 27 31 63 11 22",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-kaolack-ba275f76-1773400988968.webp",
-    services: ["Plein", "Boutique", "Pneumatique"]
+    name: "Station Marcory",
+    location: { lat: 5.3, lng: -3.983333 },
+    address: "Boulevard du Gabon, Abidjan",
+    area: "Marcory",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 8,
-    name: "Elton Man",
-    location: { lat: 7.412, lng: -7.553 },
-    address: "Route de Danané, Man",
-    phoneNumber: "+225 27 33 79 33 44",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-ziguinchor-e0e414ac-1773400989929.webp",
-    services: ["Plein", "Boutique"]
+    name: "Station Port-Bouët",
+    location: { lat: 5.25, lng: -3.933333 },
+    address: "Zone aéroportuaire, Abidjan",
+    area: "Port-Bouët",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 9,
-    name: "Elton Bassam",
-    location: { lat: 5.211, lng: -3.743 },
-    address: "Quartier France, Grand-Bassam",
-    phoneNumber: "+225 27 21 30 55 66",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-diamniadio-e2dc6a4e-1773400996559.webp",
-    services: ["Plein", "Boutique", "Café"]
+    name: "Station Attécoubé",
+    location: { lat: 5.333333, lng: -4.033333 },
+    address: "Quartier du Port, Abidjan",
+    area: "Attécoubé",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
+    services: ["Plein", "Boutique", "Lavage"]
   },
   {
     id: 10,
-    name: "Elton Bingerville",
-    location: { lat: 5.355, lng: -3.889 },
-    address: "Route de Bingerville, Bingerville",
-    phoneNumber: "+225 27 22 40 77 88",
-    imageUrl: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/elton-station-rufisque-3d086058-1773400996664.webp",
+    name: "Station Anyama",
+    location: { lat: 5.493611, lng: -3.912222 },
+    address: "Centre-ville, Anyama",
+    area: "Anyama",
+    phoneNumber: "+225 2720 311360",
+    imageUrl: STATION_IMAGE_URL,
     services: ["Plein", "Boutique", "Lavage"]
   }
 ];
@@ -193,7 +213,7 @@ export const FAVORITE_ACTIVITIES = [
   "Culture & Arts"
 ];
 
-export const CONTACT_EMAIL = "kristalwos@gmail.com";
+export const CONTACT_EMAIL = "info@elton.sn";
 
 export const FAQ_CLIENTS = [
   {
@@ -250,7 +270,7 @@ export const FAQ_PARTNERS = [
   },
   {
     question: "Combien ce partenariat me coûte-t-il ? Y a-t-il une commission à verser à Elton ?",
-    answer: `Non, aucun frais ni commission n'est reversé à Elton. Le partenariat repose uniquement sur l'avantage que vous choisissez d'offrir. C'est vous qui définissez l'offre (par exemple, -10% ou un café offert). Votre seul "coût" est la remise que vous accordez, en échange de nouveaux clients.`
+    answer: `No, aucun frais ni commission n'est reversé à Elton. Le partenariat repose uniquement sur l'avantage que vous choisissez d'offrir. C'est vous qui définissez l'offre (par exemple, -10% ou un café offert). Votre seul "coût" est la remise que vous accordez, en échange de nouveaux clients.`
   },
   {
     question: "Concrètement, comment ça se passe quand un client se présente avec sa carte ?",
