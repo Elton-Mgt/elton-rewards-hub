@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, Sun, Moon, X, Menu, User, LogOut } from 'lucide-react';
+import { Sun, Moon, X, Menu, User, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '../constants/data';
@@ -20,24 +20,34 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
   const { user, signOut } = useAuth();
 
   const handleLogout = async () => {
-    await signOut();
-    toast.info("Déconnexion réussie");
-    navigate('/');
+    try {
+      await signOut();
+      toast.info("Déconnexion réussie");
+      navigate('/');
+    } catch (error) {
+      toast.error("Erreur lors de la déconnexion");
+    }
   };
+
+  const filteredNavLinks = NAV_LINKS.filter(link => link.name !== 'Contact');
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${isDark ? 'bg-black/90 border-slate-800' : 'bg-white/90 border-orange-100'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center">
-              <Zap className="text-white w-5 h-5" fill="currentColor" />
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              <img 
+                src="https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1773435081133_Elton_logo.png" 
+                alt="ELTON Logo" 
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
             </div>
             <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>ELTON</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
+            {filteredNavLinks.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.href} 
@@ -50,6 +60,7 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
               <button 
                 onClick={toggleTheme} 
                 className={`p-2 rounded-full transition-colors duration-300 ${isDark ? 'bg-slate-800 text-amber-400' : 'bg-orange-50 text-orange-600'}`}
+                aria-label="Toggle theme"
               >
                 {isDark ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -65,6 +76,7 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
                   <button 
                     onClick={handleLogout}
                     className={`p-2 rounded-full transition-colors ${isDark ? 'text-slate-400 hover:text-red-500' : 'text-slate-500 hover:text-red-600'}`}
+                    aria-label="Log out"
                   >
                     <LogOut size={18} />
                   </button>
@@ -86,10 +98,15 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
             <button 
               onClick={toggleTheme} 
               className={`p-2 rounded-full transition-colors duration-300 ${isDark ? 'bg-slate-800 text-amber-400' : 'bg-orange-50 text-orange-600'}`}
+              aria-label="Toggle theme"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`p-2 transition-colors duration-300 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              className={`p-2 transition-colors duration-300 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}
+              aria-label="Toggle menu"
+            >
               {isMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
@@ -105,7 +122,7 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
             className={`md:hidden border-b overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black border-slate-800' : 'bg-white border-orange-100'}`}
           >
             <div className="px-4 py-6 space-y-4">
-              {NAV_LINKS.map((link) => (
+              {filteredNavLinks.map((link) => (
                 <Link 
                   key={link.name} 
                   to={link.href} 
