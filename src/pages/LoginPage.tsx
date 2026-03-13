@@ -18,7 +18,7 @@ import { toast } from 'sonner';
 
 const loginSchema = z.object({
   email: z.string().email("Email invalide"),
-  password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caract\u00e8res"),
+  password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caractères"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;
@@ -45,7 +45,7 @@ export const LoginPage = ({ theme }: { theme: 'white' | 'black' }) => {
 
       if (error) throw error;
 
-      toast.success("Connexion r\u00e9ussie !");
+      toast.success("Connexion réussie !");
       navigate('/mon-compte');
     } catch (err: any) {
       setError(err.message || "Une erreur est survenue lors de la connexion");
@@ -62,16 +62,16 @@ export const LoginPage = ({ theme }: { theme: 'white' | 'black' }) => {
           {/* Form Side */}
           <div className="p-8 md:p-14 lg:p-20 flex flex-col justify-center">
             <Link to="/" className={`inline-flex items-center gap-2 mb-12 font-medium transition-colors ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'}`}>
-              <ArrowLeft size={18} /> Retour \u00e0 l'accueil
+              <ArrowLeft size={18} /> Retour à l'accueil
             </Link>
 
             <div className="mb-10">
               <h1 className={`text-4xl font-black mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                Content de vous <br />
+                Ravi de vous <br />
                 <span className="text-orange-600 italic">revoir</span>
               </h1>
               <p className={`transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                Connectez-vous pour acc\u00e9der \u00e0 votre carte et vos avantages.
+                Connectez-vous pour accéder à votre espace personnel et vos avantages.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export const LoginPage = ({ theme }: { theme: 'white' | 'black' }) => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-2">
                 <label className={`text-sm font-bold flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                  <Mail className="w-4 h-4 text-orange-600" /> Email
+                  <Mail className="w-4 h-4 text-orange-600" /> Adresse E-mail
                 </label>
                 <input
                   {...register("email")}
@@ -105,12 +105,12 @@ export const LoginPage = ({ theme }: { theme: 'white' | 'black' }) => {
                   <label className={`text-sm font-bold flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                     <Lock className="w-4 h-4 text-orange-600" /> Mot de passe
                   </label>
-                  <button type="button" className="text-xs font-semibold text-orange-600 hover:underline">Mot de passe oubli\u00e9 ?</button>
+                  <button type="button" className="text-xs font-semibold text-orange-600 hover:underline">Mot de passe oublié ?</button>
                 </div>
                 <input
                   {...register("password")}
                   type="password"
-                  placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+                  placeholder="••••••••"
                   className={`w-full px-5 py-4 rounded-2xl border outline-none transition-all ${isDark ? 'bg-black border-slate-800 text-white focus:border-orange-600' : 'bg-slate-50 border-slate-100 focus:bg-white focus:border-orange-500'}`}
                 />
                 {errors.password && <p className="text-red-500 text-xs font-medium">{errors.password.message}</p>}
@@ -142,8 +142,8 @@ export const LoginPage = ({ theme }: { theme: 'white' | 'black' }) => {
                 <div className="flex gap-2 mb-6">
                   {[1,2,3].map(i => <ShieldCheck key={i} className="w-6 h-6 text-orange-500 fill-current" />)}
                 </div>
-                <h3 className="text-3xl font-black text-white mb-4">V\u00e9ritablement s\u00e9curis\u00e9.</h3>
-                <p className="text-slate-300 text-lg">Vos donn\u00e9es et vos avantages sont prot\u00e9g\u00e9s par notre infrastructure de classe mondiale.</p>
+                <h3 className="text-3xl font-black text-white mb-4">Véritablement sécurisé.</h3>
+                <p className="text-slate-300 text-lg">Vos données et vos avantages sont protégés par notre infrastructure de classe mondiale.</p>
               </div>
             </div>
           </div>

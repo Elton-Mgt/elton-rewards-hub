@@ -18,9 +18,9 @@ import { supabase } from '../lib/supabase';
 import { toast } from 'sonner';
 
 const registerSchema = z.object({
-  fullName: z.string().min(3, "Le nom complet doit avoir au moins 3 caract\u00e8res"),
+  fullName: z.string().min(3, "Le nom complet doit avoir au moins 3 caractères"),
   email: z.string().email("Email invalide"),
-  password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caract\u00e8res"),
+  password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caractères"),
   confirmPassword: z.string().min(6, "La confirmation est requise"),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Les mots de passe ne correspondent pas",
@@ -56,7 +56,7 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
 
       if (error) throw error;
 
-      toast.success("Compte cr\u00e9\u00e9 avec succ\u00e8s ! Veuillez v\u00e9rifier votre email.");
+      toast.success("Compte créé avec succès ! Veuillez vérifier votre email.");
       navigate('/connexion');
     } catch (err: any) {
       setError(err.message || "Une erreur est survenue lors de l'inscription");
@@ -74,7 +74,7 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
           <div className="hidden lg:block relative">
             <img 
               src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/e325981e-a3fa-4148-a322-f63d5532ab97/register-hero-e76b82db-1773431379821.webp"
-              alt="Register Illustration"
+              alt="Illustration d'inscription"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent flex items-end p-20">
@@ -82,8 +82,8 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
                 <div className="flex gap-2 mb-6">
                    <Zap className="w-10 h-10 text-orange-500 fill-current" />
                 </div>
-                <h3 className="text-3xl font-black text-white mb-4">Le futur de la fid\u00e9lit\u00e9.</h3>
-                <p className="text-slate-300 text-lg">Rejoignez des milliers d'ivoiriens qui \u00e9conomisent chaque jour gr\u00e2ce \u00e0 Elton.</p>
+                <h3 className="text-3xl font-black text-white mb-4">Le futur de la fidélité.</h3>
+                <p className="text-slate-300 text-lg">Rejoignez des milliers d'Ivoiriens qui économisent chaque jour grâce à Elton.</p>
               </div>
             </div>
           </div>
@@ -91,16 +91,16 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
           {/* Form Side */}
           <div className="p-8 md:p-14 lg:p-20 flex flex-col justify-center">
             <Link to="/" className={`inline-flex items-center gap-2 mb-12 font-medium transition-colors ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'}`}>
-              <ArrowLeft size={18} /> Retour \u00e0 l'accueil
+              <ArrowLeft size={18} /> Retour à l'accueil
             </Link>
 
             <div className="mb-10">
               <h1 className={`text-4xl font-black mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                Cr\u00e9ez votre <br />
+                Créez votre <br />
                 <span className="text-orange-600 italic">compte</span>
               </h1>
               <p className={`transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                Remplissez vos d\u00e9tails pour activer votre carte virtuelle Elton.
+                Remplissez vos détails pour activer votre carte virtuelle Elton.
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
                   <input
                     {...register("password")}
                     type="password"
-                    placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+                    placeholder="••••••••"
                     className={`w-full px-5 py-3.5 rounded-2xl border outline-none transition-all ${isDark ? 'bg-black border-slate-800 text-white focus:border-orange-600' : 'bg-slate-50 border-slate-100 focus:bg-white focus:border-orange-500'}`}
                   />
                   {errors.password && <p className="text-red-500 text-xs font-medium">{errors.password.message}</p>}
@@ -162,7 +162,7 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
                   <input
                     {...register("confirmPassword")}
                     type="password"
-                    placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+                    placeholder="••••••••"
                     className={`w-full px-5 py-3.5 rounded-2xl border outline-none transition-all ${isDark ? 'bg-black border-slate-800 text-white focus:border-orange-600' : 'bg-slate-50 border-slate-100 focus:bg-white focus:border-orange-500'}`}
                   />
                   {errors.confirmPassword && <p className="text-red-500 text-xs font-medium">{errors.confirmPassword.message}</p>}
@@ -179,7 +179,7 @@ export const RegisterPage = ({ theme }: { theme: 'white' | 'black' }) => {
             </form>
 
             <p className={`mt-8 text-center text-sm ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
-              Vous avez d\u00e9j\u00e0 un compte ? <Link to="/connexion" className="text-orange-600 font-bold hover:underline">Se connecter</Link>
+              Vous avez déjà un compte ? <Link to="/connexion" className="text-orange-600 font-bold hover:underline">Se connecter</Link>
             </p>
           </div>
         </div>
