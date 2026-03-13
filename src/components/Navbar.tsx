@@ -18,6 +18,7 @@ export const Navbar = ({ cardActive, theme, toggleTheme }: NavbarProps) => {
     { name: 'Comment ça marche', href: '/#how-it-works' },
     { name: 'Partenaires', href: '/#partners' },
     { name: 'Offres', href: '/offres' },
+    { name: 'Aide & FAQ', href: '/faq' },
   ];
 
   return (

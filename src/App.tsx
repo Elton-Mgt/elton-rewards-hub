@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage';
 import { OffersPage } from './pages/OffersPage';
 import { PartnerApplicationPage } from './pages/PartnerApplicationPage';
 import { CardApplicationPage } from './pages/CardApplicationPage';
+import { FaqPage } from './pages/FaqPage';
 
 function AppContent() {
   const [cardActive, setCardActive] = useState(false);
@@ -69,6 +70,12 @@ function AppContent() {
           path="/obtenir-carte" 
           element={
             <CardApplicationPage theme={theme} />
+          } 
+        />
+        <Route 
+          path="/faq" 
+          element={
+            <FaqPage theme={theme} />
           } 
         />
       </Routes>
